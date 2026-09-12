@@ -37,4 +37,8 @@ function update() {
 addEventListener('scroll', () => { if (!scheduled) { scheduled = true; requestAnimationFrame(update); } }, { passive: true });
 addEventListener('resize', update);
 update();
+<<<<<<< HEAD
 
+=======
+
+>>>>>>> origin/main

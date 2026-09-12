@@ -1,3 +1,18 @@
+<<<<<<< HEAD
+import { ArrowLeft } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { useLaunchTheme } from '../components/RippleLoading';
+import { ThemeSelector } from '../features/themes/ThemeSelector';
+import '../theme/entry.css';
+
+export default function HomePage() {
+  const launch = useLaunchTheme();
+  return <main id="main-content" className="theme-screen">
+    <Link to="/" className="back-link theme-back" data-exit><ArrowLeft size={18} />返回</Link>
+    <h1 tabIndex={-1} data-exit>选一个喜欢的世界，开始今天的练习。</h1>
+    <ThemeSelector onLaunch={launch} />
+  </main>;
+=======
 import { ArrowRight, ArrowUpRight, Camera, Clock3, Hand, Headphones, Leaf, Link2, Orbit, PawPrint, ShieldCheck, Sparkles } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { AppShell } from '../components/Layout';
@@ -21,4 +36,5 @@ export default function HomePage() {
     <div className="home-bottom" data-exit><div className="gentle-note"><span className="note-icon"><Camera size={21} /></span><div><h3>只需要一部手机，和轻松的你</h3><p>固定手机，把手放进画面。接下来，让音乐带着你。</p></div></div><Link className="binding-nudge" to="/binding"><Link2 size={18} /><span>让治疗师看见你的每一小步</span><ArrowRight size={18} /></Link></div>
     <p className="home-privacy" data-exit><ShieldCheck size={14} /> 视频画面不保存<span>·</span>记录默认留在本机<span>·</span>游戏成绩不表示康复疗效</p>
   </div></AppShell>;
+>>>>>>> origin/main
 }
