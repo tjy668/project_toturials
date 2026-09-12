@@ -12,16 +12,23 @@ pnpm build
 pnpm check:production
 ```
 
+<<<<<<< HEAD
 本地开发默认 `http://localhost:5173`。应用使用 HashRouter：下列内部路由的访问地址需加 `#`，例如 `http://localhost:5173/#/themes`。
 
 - `/`：暖米色极简启动页，仅图标、节奏康复标题、「开始」和「过往记录」。不自动跳过启动页。
 - `/themes`：单主题选择舞台；左右滑动、方向按钮、指示点与左右方向键切换，首尾循环。「进入这个世界」经过原有水晕加载进入对应准备页。
+=======
+本地开发默认 `http://localhost:5173`。当前机器已启动本地预览服务。
+
+- `/`：三主题首页，点「开始体验」查看水晕加载。
+>>>>>>> origin/main
 - `/prepare/pet`：真实准备流程；`garden` / `space` 使用相同组件。
 - `/design`：**仅开发环境可用**的视觉状态预览，可切换主题、加载、校准、教学、训练、结果和历史。训练面板可检查 Perfect / Good / Miss、丢手、找回、媒体等待、后台返回、暂停、退出。使用明确标注的模拟数据，不保存或上传记录。
 - `/history`：IndexedDB 本机记录与打卡日历；初始为空。
 - `/binding`：邀请码查询 → 治疗师预览 → 明确确认分享；未接服务时显示不可用状态。
 - `/therapist/login`：治疗师登录；用户列表与详情由服务端权限控制。
 
+<<<<<<< HEAD
 基线已在 runtime 接口内接入 Google MediaPipe Hand Landmarker，用于准备页的本机手部定位、取景质量判断和三个基础手型识别。此次入口改版没有修改识别算法。项目内仍没有 B 的节拍判定/训练引擎，也没有 A 的正式 90 秒训练 MP4、专业审核教学视频和反馈音效。正式入口不会模拟真实成绩、绑定或云端同步。
 
 ### 主题选择与动效
@@ -47,6 +54,9 @@ node scripts/entry-smoke.mjs
 ```
 
 浏览器验收止于摄像头说明页；它不等于真实手机摄像头识别或完整训练判分验收。原有 MediaPipe 问题仍需单独诊断。
+=======
+本次交付已在原有 runtime 接口内接入 Google MediaPipe Hand Landmarker，用于准备页的本机手部定位、取景质量判断和三个基础手型识别；训练阶段机、页面结构与视觉框架保持不变。项目内仍没有 B 的节拍判定/训练引擎，也没有 A 的正式 90 秒训练 MP4、专业审核教学视频和反馈音效。正式入口不会模拟真实成绩、绑定或云端同步。
+>>>>>>> origin/main
 
 ### 手部视觉识别
 
@@ -117,7 +127,11 @@ good.mp3
 - TypeScript strict 与生产构建已通过。
 - Vitest 测试覆盖手部几何、manifest 无效任务拒绝、未完成结果、零节拍成绩、IndexedDB 本机提交/读取/同步失败保存。
 - `check:production` 检查生产 JS/HTML 中没有开发模拟器、示例记录或 service role key 标记。开发路由和模拟器只经 `import.meta.env.DEV` 动态引入。
+<<<<<<< HEAD
 - 2026-09-12 入口改版：23 项 Vitest 测试、TypeScript/Vite 生产构建及 `check:production` 通过；原有浏览器回归与入口专项检查通过，包含 320/360/390/1440px、短视口、200% 文字与生产 HashRouter 子路径。截图已检查。尚无 iPhone Safari / Android Chrome 物理设备验收结论。
+=======
+- 浏览器自动验收暂未运行成功：本机审批服务多次返回连接中断。已准备 `scripts/browser-smoke.mjs`，尚不能声称通过 360/390px 浏览器实测或真机检查。
+>>>>>>> origin/main
 - `scripts/browser-smoke.mjs` 使用这台开发机自带的 Playwright / Edge 路径；换机器请替换为当地 Playwright 与 Chromium 路径。脚本在全新测试浏览器中访问 localhost，不读取个人浏览器资料，结果写入 `test-results`。
 - 仍需 iPhone Safari / Android Chrome 真机验证摄像头、媒体自动播放许可、后台恢复与连续三轮训练；本次未取得真机测试结果。
 
